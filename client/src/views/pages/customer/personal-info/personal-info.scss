@@ -1,0 +1,130 @@
+// 🎨 BẢNG MÀU "VÀNG MẬT ONG & BÁNH KEM" SIÊU CUTE
+$bg-creamy: #FFFBEB;       // Vàng kem làm nền
+$primary-sunny: #FCD34D;    // Vàng nắng làm điểm nhấn
+$border-butter: #FDE68A;   // Vàng bơ làm viền input
+$text-honey: #A16207;       // Nâu mật ong cho chữ và bóng
+$white-soft: #FFFFFF;      // Trắng
+
+.personal-info {
+  // 1. CONTAINER CHÍNH - "THẺ THÀNH VIÊN" SIÊU XINH
+  &-wrapper {
+    max-width: 800px;
+    margin: 40px auto;
+    background: $bg-creamy;
+    padding: 40px 50px;
+    border-radius: 30px; // Bo góc "mũm mĩm" hơn
+    // Đổ bóng 2 lớp tạo chiều sâu mềm mại, đáng yêu
+    box-shadow: 0 4px 15px rgba($text-honey, 0.1), 0 10px 30px rgba($bg-creamy, 0.5);
+    border: 1px solid $border-butter;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px; // Tăng khoảng cách cho thoáng
+    transition: all 0.3s ease-in-out;
+
+    // Hiệu ứng nhấc lên khi hover vào card, siêu xịn!
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba($text-honey, 0.15), 0 15px 40px rgba($bg-creamy, 0.4);
+    }
+  }
+
+  // 2. AVATAR TỎA SÁNG NHƯ "BÁU VẬT"
+  &__avatar {
+    position: relative;
+    cursor: pointer;
+    
+    .ant-avatar {
+      width: 160px !important;
+      height: 160px !important;
+      border: 7px solid $white-soft;
+      // Viền kép: 1 lớp màu chính, 1 lớp trắng bên trong, siêu nổi bật!
+      box-shadow: 0 0 0 5px $primary-sunny, 0 10px 30px rgba($text-honey, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    // Nút Upload hình camera xinh xắn
+    .ant-upload-wrapper {
+      .ant-upload.ant-upload-select {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 45px;
+        height: 45px;
+        background: rgba($primary-sunny, 0.9); // Nền vàng trong suốt
+        border: 2px solid $white-soft;
+        border-radius: 50%;
+        color: $text-honey;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0; // Ẩn đi lúc bình thường
+        transform: scale(0.5) rotate(-45deg);
+        // Hiệu ứng nảy lên cưng xỉu khi xuất hiện
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        backdrop-filter: blur(3px); // Hiệu ứng mờ kính
+      }
+    }
+    
+    // Hiệu ứng khi di chuột vào avatar
+    &:hover {
+      .ant-avatar {
+        transform: scale(1.05); // Phóng to ảnh đại diện
+      }
+      .ant-upload-wrapper .ant-upload.ant-upload-select {
+        opacity: 1;
+        transform: scale(1) rotate(0deg); // Nút camera nảy lên và xoay
+      }
+    }
+  }
+
+  // 3. FORM NHẬP LIỆU "MỀM MẠI", DỄ CHỊU
+  &__form {
+    width: 100%;
+    
+    // Tiêu đề của mỗi mục (Họ và tên, Email,...)
+    .ant-form-item-label > label {
+      color: $text-honey;
+      font-weight: 700; // In đậm, rõ ràng
+      font-size: 15px;
+    }
+
+    // Các ô input, password, date picker
+    .ant-input, .ant-input-password, .ant-picker {
+      background: $white-soft !important; // Nền trắng cho dễ đọc
+      border-color: $border-butter !important;
+      color: $text-honey;
+      border-radius: 12px; // Bo tròn hơn nữa
+      height: 48px; // Cao hơn cho dễ bấm
+      padding: 10px 15px;
+      transition: all 0.2s ease;
+      font-weight: 500;
+
+      &:focus, &:hover {
+        border-color: $primary-sunny !important; // Viền vàng đậm khi focus
+        box-shadow: 0 0 0 3px rgba($primary-sunny, 0.2) !important;
+      }
+    }
+
+    // Nút "Lưu thay đổi" trông thật "pressable" (muốn nhấn vào)
+    .ant-btn-primary {
+      background: $primary-sunny;
+      border-color: $primary-sunny;
+      color: $text-honey;
+      height: 48px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 16px;
+      width: 100%;
+      box-shadow: 0 4px 15px rgba($primary-sunny, 0.3);
+      transition: all 0.2s ease-in-out;
+      
+      &:hover, &:focus { 
+        background: darken($primary-sunny, 5%);
+        border-color: darken($primary-sunny, 5%);
+        transform: translateY(-3px); // Hiệu ứng nhấc lên khi hover
+        box-shadow: 0 7px 20px rgba($primary-sunny, 0.4);
+      }
+    }
+  }
+}
